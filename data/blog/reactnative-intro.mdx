@@ -1,0 +1,126 @@
+---
+title: React Native：用 JavaScript 构建真正的跨平台应用 🚀
+date: '2026-1-10'
+tags: ['reactnative', 'front-end']
+draft: false
+summary: 一次开发，多端运行
+---
+
+在移动应用开发领域，“一次开发，多端运行”一直是开发者追求的目标。**React Native** 正是在这样的背景下诞生的 —— 它让我们可以使用 **JavaScript / TypeScript 和 React 思想**，构建真正接近原生体验的 iOS 与 Android 应用。
+
+---
+
+## 什么是 React Native？
+
+**React Native（RN）** 是由 Facebook（Meta）推出的开源跨平台移动开发框架。
+它并不是简单地把 Web 页面包进 WebView，而是通过 **原生组件映射机制**，将 React 组件渲染为真正的原生 UI。
+
+这也是 React Native 与传统 Hybrid 方案最大的区别。
+
+---
+
+## React Native 的核心优势 ✨
+
+### 1️⃣ 真正的原生体验
+
+React Native 使用原生组件（如 `View`、`Text`、`Image`），性能和交互体验接近原生应用，远优于基于 WebView 的方案。
+
+### 2️⃣ 跨平台开发，节省成本
+
+一套代码即可运行在 **iOS / Android**，大幅降低开发与维护成本，尤其适合中小团队和快速迭代的产品。
+
+### 3️⃣ 熟悉的 React 开发模式
+
+如果你已经掌握 **React Hooks、组件化思想、状态管理**，几乎可以无缝上手 React Native。
+
+### 4️⃣ 热更新与快速迭代
+
+支持 **Fast Refresh**，修改代码即可立即看到效果，开发效率非常高 ⚡
+
+---
+
+## React Native 的工作原理 🧠
+
+React Native 并不是直接操作原生 UI，而是通过以下流程：
+
+1. JavaScript 代码运行在 JS 引擎中（Hermes / JSC）
+2. React 生成 Virtual DOM
+3. RN 框架将更新通过 Bridge（或新架构）传递给原生层
+4. 原生层渲染对应的 UI 组件
+
+随着 **新架构（Fabric + TurboModules）** 的推出，React Native 在性能和通信效率上有了显著提升。
+
+---
+
+## React Native 适合哪些场景？
+
+React Native 非常适合以下场景：
+
+* 📱 内容型 App（资讯、社区、工具类）
+* 🛒 电商、活动页、营销应用
+* 🚀 快速 MVP 验证
+* 🧩 需要 iOS / Android 双端统一体验的产品
+
+但对于 **高性能游戏、重度动画、深度系统定制** 场景，原生开发仍然更有优势。
+
+---
+
+## 一个简单的 React Native 示例
+
+```tsx
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello React Native 🚀</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+  },
+});
+```
+
+从代码中可以看到，React Native 与 React 非常相似，但使用的是 **跨平台的原生组件和样式系统**。
+
+---
+
+## React Native vs Flutter 🤔
+
+| 对比项   | React Native            | Flutter |
+| ----- | ----------------------- | ------- |
+| 语言    | JavaScript / TypeScript | Dart    |
+| UI 渲染 | 原生组件                    | 自绘引擎    |
+| 学习成本  | 低（React 用户）             | 中       |
+| 原生融合  | 非常灵活                    | 相对复杂    |
+
+如果你有 React 生态背景，**React Native 是非常自然的选择**。
+
+---
+
+## 生态与工具推荐 🧰
+
+* **Expo**：快速启动与构建 RN 应用
+* **React Navigation**：路由与导航
+* **Redux / Zustand / Recoil**：状态管理
+* **Axios / React Query**：数据请求与缓存
+* **Hermes**：高性能 JS 引擎
+
+---
+
+## 总结
+
+React Native 在跨平台开发领域依然占据重要位置。
+它在 **开发效率、社区生态、原生体验** 之间取得了良好的平衡，是构建移动应用的可靠选择。
+
+如果你希望用熟悉的 React 技术栈，快速打造高质量移动应用，**React Native 值得一试** 💡

@@ -1,0 +1,131 @@
+---
+title: 如何 fork 别人的项目，既能加自己的内容，又能长期跟上游更新？（2026年最新推荐做法）
+date: '2026-1-10'
+tags: ['git', 'github', 'upstream']
+draft: false
+summary: 如何 fork 别人的项目并长期跟上游更新
+---
+
+
+### 推荐工作流程总览（最常用、最不容易翻车）
+
+```
+上游仓库（别人）  →  定期同步到  →  你的 fork 主分支（通常 main/master）
+                                           ↓
+                                 在 feature/xxx 分支开发自己的功能
+                                           ↓
+                               提交 PR 到上游（可选）或只保留在自己仓库
+```
+
+### 第一步：Fork 项目（这个大家都懂）
+
+在 GitHub 上直接点 **Fork** 按钮即可
+→ 得到 `https://github.com/你的用户名/原项目名`
+
+### 第二步：把上游加为 remote（超级重要！只做一次）
+
+克隆你的 fork 到本地后，执行以下命令（**一生只做一次**）：
+
+```bash
+# 进入项目目录
+cd 你的项目文件夹
+
+# 查看当前远程仓库（一般只有 origin）
+git remote -v
+
+# 添加上游仓库（upstream 这个名字是惯例，可以随便起但建议统一用这个）
+git remote add upstream https://github.com/原作者/原项目名.git
+
+# 再次查看，应该看到两个 remote
+git remote -v
+# origin    https://github.com/你的用户名/原项目名.git (fetch)
+# origin    https://github.com/你的用户名/原项目名.git (push)
+# upstream  https://github.com/原作者/原项目名.git (fetch)
+# upstream  https://github.com/原作者/原项目名.git (push)
+```
+
+### 第三步：日常同步上游更新的三种主流方式（选你喜欢的）
+
+#### 方式1：最简单（推荐大部分人）——直接网页上「Sync fork」
+
+1. 打开你自己的 fork 仓库页面
+2. 看到「This branch is X commits behind 原作者:main」这样的提示
+3. 点击 **Sync fork** 按钮 → **Update branch**
+
+优点：最快、最傻瓜
+缺点：如果有冲突就只能创建 PR 解决（比较麻烦）
+
+#### 方式2：最灵活、最推荐长期维护的做法（本地 merge/rebase）
+
+```bash
+# 1. 确保你在主分支
+git checkout main
+
+# 2. 拉取上游最新内容（不会改你本地任何东西）
+git fetch upstream
+
+# 3. 有两种合并策略，任选其一：
+
+# 方案A：保留合并记录（比较安全，推荐新手）
+git merge upstream/main
+
+# 方案B：保持历史更干净（高级用户常用，但要小心）
+git rebase upstream/main
+   # 如果有冲突 → 解决冲突 → git rebase --continue
+
+# 4. 无论选哪个，完成后推送到自己仓库
+git push origin main
+# 如果用了 rebase 且之前 push 过，可能要强制推（小心！）
+# git push origin main --force-with-lease
+```
+
+#### 方式3：GitHub CLI 极简一键同步（2023年后越来越多人用）
+
+先安装 GitHub CLI（如果还没装）：https://cli.github.com
+
+```bash
+# 一条命令直接同步（远程仓库同步，不需要本地操作）
+gh repo sync 你的用户名/你的fork仓库名 --branch main
+
+# 如果有冲突就得回退到方式2本地解决
+```
+
+### 第四步：自己的修改要怎么做？（最关键！）
+
+**黄金法则**：**永远不要直接在 main/master 分支写自己的代码！**
+
+正确做法：
+
+```bash
+# 每次想加新功能/改东西，都新建分支
+git checkout -b feature/我的新功能
+# 或
+git checkout -b fix/修复某个bug
+
+# ... 修改代码、提交 ...
+
+git add .
+git commit -m "feat: 添加了XXX功能"
+
+# 推送到自己仓库
+git push origin feature/我的新功能
+```
+
+这样你的 main 分支就能干净地不断同步上游，而你的所有个性化修改都安全地待在各个 feature 分支里。
+
+### 快速对照表 - 遇到情况怎么选
+
+| 你想做的事情                     | 推荐方式              | 备注                              |
+|----------------------------------|-----------------------|-----------------------------------|
+| 只想快速同步，不写任何自己的代码 | 网页 Sync fork        | 最快                              |
+| 长期维护 fork，有自己修改       | 本地 fetch + merge    | 最安全，最可控                    |
+| 追求干净历史线                   | 本地 fetch + rebase   | 熟练后最优雅                      |
+| 懒得开本地，想远程一键           | gh repo sync          | 冲突时仍需本地处理                |
+| 上游更新非常频繁                 | GitHub Actions 自动同步 | 适合 bot/主题/模板类仓库          |
+
+记住一句话：
+
+**「main 分支只负责跟上游，自己的所有有价值修改都应该放在 feature/xxx 分支」**
+这是 90% 长期维护 fork 的人最终都会遵循的生存法则。
+
+祝你 fork 愉快，同步顺利～ 🚀

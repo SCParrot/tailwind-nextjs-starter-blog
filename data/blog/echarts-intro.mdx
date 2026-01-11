@@ -1,0 +1,143 @@
+---
+title: 让你 30 分钟内能自己画出大部分常见图表
+date: '2026-1-10'
+tags: ['echarts']
+draft: false
+summary: 面向初学者、尽量简单易懂**的 **Apache ECharts 实用参考文档**
+---
+
+
+### 一、最最最简单的一句话入门
+
+你只需要记住这三行核心代码：
+
+```html
+<div id="chart" style="width:100%; height:500px;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+<script>
+var chart = echarts.init(document.getElementById('chart'));
+chart.setOption({ /* ← 几乎所有魔法都发生在这里 */ });
+</script>
+```
+
+**后面99%的精力都花在修改 `setOption()` 里面的那个大对象上**。
+
+### 二、2025~2026 年最推荐的几种引入方式（选一种就好）
+
+| 方式               | 代码写法                                          | 适合场景                     | 推荐指数 |
+|----------------------|-----------------------------------------------------|-------------------------------|-----------|
+| CDN（最简单）        | `<script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>` | 快速原型、文档、演示         | ★★★★★    |
+| 指定版本（最稳）     | `https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js` | 正式项目（防自动升级出问题） | ★★★★☆    |
+| 按需引入（体积最小） | `import * as echarts from 'echarts/core';` + 手动引入组件 | Vue/React 大型项目           | ★★★★     |
+| npm 全量             | `npm i echarts` → `import * as echarts from 'echarts'` | 常规前端工程化项目           | ★★★☆     |
+
+**绝大多数人直接用第一种或第二种就够了！**
+
+### 三、配置项速查 - 常用图表「最小可用模板」（复制粘贴改数据就行）
+
+```js
+// 1. 最经典柱状图
+option = {
+  title: { text: '商品销量对比' },
+  tooltip: {},                    // 鼠标悬浮提示
+  xAxis: { data: ['T恤', '卫衣', '裤子', '鞋子', '袜子'] },
+  yAxis: {},
+  series: [{
+    name: '销量',
+    type: 'bar',
+    data: [120, 200, 150, 80, 70],
+    itemStyle: { color: '#5470c6' }   // 改颜色
+  }]
+};
+
+// 2. 折线图（加平滑 + 多条线）
+option = {
+  title: { text: '近7天访问量趋势' },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['PC端', '移动端'] },
+  xAxis: { type: 'category', data: ['周一','周二','周三','周四','周五','周六','周日'] },
+  yAxis: { type: 'value' },
+  series: [
+    { name: 'PC端',   type: 'line', smooth: true, data: [120, 132, 101, 134, 90, 230, 210] },
+    { name: '移动端', type: 'line', smooth: true, data: [220, 182, 191, 234, 290, 330, 310] }
+  ]
+};
+
+// 3. 饼图（最常用写法）
+option = {
+  title: { text: '用户设备占比', left: 'center' },
+  tooltip: { trigger: 'item' },
+  legend: { orient: 'vertical', left: 'left' },
+  series: [{
+    type: 'pie',
+    radius: '55%',
+    center: ['50%', '60%'],
+    data: [
+      { value: 1048, name: '手机' },
+      { value: 735,  name: '平板' },
+      { value: 580,  name: 'PC' },
+      { value: 484,  name: '其他' }
+    ],
+    emphasis: {
+      itemStyle: {
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+      }
+    }
+  }]
+};
+
+// 4. 柱状图+折线图组合（非常常见）
+option = {
+  tooltip: { trigger: 'axis' },
+  legend: {},
+  xAxis: { data: ['1月','2月','3月','4月','5月','6月'] },
+  yAxis: [
+    { type: 'value', name: '销量(件)' },
+    { type: 'value', name: '增长率(%)' }
+  ],
+  series: [
+    { name: '销量', type: 'bar', data: [300, 450, 620, 580, 790, 920] },
+    { name: '增长率', type: 'line', yAxisIndex: 1, data: [5, 12, 18, -4, 35, 16] }
+  ]
+};
+```
+
+### 四、常用小技巧速查表（强烈建议收藏）
+
+| 想要的效果                     | 怎么写（常用写法）                                | 备注                     |
+|-------------------------------|--------------------------------------------------|--------------------------|
+| 改主色调                      | `color: ['#5470c6', '#91cc75', '#fac858', ...]` | 全局颜色列表             |
+| 深色主题                      | `chart = echarts.init(dom, 'dark');`             | 第二参数传 'dark'        |
+| 字体变大、微软雅黑            | `textStyle: { fontFamily: 'Microsoft YaHei', fontSize: 14 }` | 全局字体                 |
+| 隐藏图例                      | `legend: { show: false }`                        | —                        |
+| 横向柱状图                    | 把 `xAxis` 与 `yAxis` 交换位置即可               | 超级方便                 |
+| 数据标签显示在柱子顶端        | `series: [{ label: { show: true, position: 'top' } }]` | —                        |
+| 自动刷新数据（动态更新）      | `chart.setOption(newOption, true)`               | 第二个参数true清空重绘   |
+| 自适应窗口大小                | `window.onresize = () => chart.resize()`         | 必须写！                 |
+| 渐变色柱子                    | `itemStyle: { color: new echarts.graphic.LinearGradient(...) }` | 稍微复杂一点             |
+| 点击事件                      | `chart.on('click', params => console.log(params.name, params.value))` | 超级重要！               |
+
+### 五、推荐学习进阶路径（建议顺序）
+
+1. 先能把上面4种基础图表随便改出来（大概1~2小时）
+2. 学会 legend / tooltip / title 的基本配置（30分钟）
+3. 玩转颜色、字体、网格、边距（grid）（1小时）
+4. 学会 dataset + transform（新数据驱动写法，强烈推荐！）
+5. 尝试一下雷达图、散点图、地图、桑基图、树图（看心情）
+6. 需要多少功能再去查多少（官方示例库是最好的老师）
+
+**官方示例库（2026年仍然最推荐）**：
+https://echarts.apache.org/examples/zh/index.html
+
+**一句话总结**：
+
+> ECharts 难的不是 ECharts 本身
+> 而是你**想画什么图**、**数据长什么样**、**要表达什么故事**
+
+把需求想清楚后，找一个最像的例子，改数据 → 改标题 → 改颜色 → 加个交互 → 完事。
+
+祝你早日成为「改 option 如喝水」的熟练工！🚀
