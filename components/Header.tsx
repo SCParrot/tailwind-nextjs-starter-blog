@@ -1,3 +1,7 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+import { usePathname, useRouter } from 'next/navigation'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
@@ -7,6 +11,16 @@ import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 
 const Header = () => {
+  const t = useTranslations('nav')
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const switchLocale = (newLocale: string) => {
+    const segments = pathname.split('/')
+    segments[1] = newLocale
+    router.push(segments.join('/'))
+  }
+
   let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
@@ -38,12 +52,27 @@ const Header = () => {
                 href={link.href}
                 className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
               >
-                {link.title}
+                {t(link.title.toLowerCase().replace(/\s+/g, '_'))}
               </Link>
             ))}
         </div>
         <SearchButton />
         <ThemeSwitch />
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => switchLocale('en')}
+            className="hover:text-primary-500 dark:hover:text-primary-400 text-sm font-medium"
+          >
+            EN
+          </button>
+          <span className="text-gray-500 dark:text-gray-400">|</span>
+          <button
+            onClick={() => switchLocale('zh')}
+            className="hover:text-primary-500 dark:hover:text-primary-400 text-sm font-medium"
+          >
+            中文
+          </button>
+        </div>
         <MobileNav />
       </div>
     </header>

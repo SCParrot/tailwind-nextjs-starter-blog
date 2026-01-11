@@ -6,18 +6,23 @@ export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
+  const locales = ['en', 'zh']
 
   const blogRoutes = allBlogs
     .filter((post) => !post.draft)
-    .map((post) => ({
-      url: `${siteUrl}/${post.path}`,
-      lastModified: post.lastmod || post.date,
-    }))
+    .flatMap((post) =>
+      locales.map((locale) => ({
+        url: `${siteUrl}/${locale}/${post.path}`,
+        lastModified: post.lastmod || post.date,
+      }))
+    )
 
-  const routes = ['', 'blog', 'projects', 'tags'].map((route) => ({
-    url: `${siteUrl}/${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }))
+  const routes = locales.flatMap((locale) =>
+    ['', 'blog', 'projects', 'tags'].map((route) => ({
+      url: route ? `${siteUrl}/${locale}/${route}` : `${siteUrl}/${locale}`,
+      lastModified: new Date().toISOString().split('T')[0],
+    }))
+  )
 
   return [...routes, ...blogRoutes]
 }

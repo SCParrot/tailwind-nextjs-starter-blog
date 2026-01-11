@@ -1,8 +1,13 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
+  const t = useTranslations('footer')
+
   return (
     <footer>
       <div className="mt-16 flex flex-col items-center">
@@ -28,7 +33,7 @@ export default function Footer() {
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
-            Tailwind Nextjs Theme
+            {t('builtWith')}
           </Link>
         </div>
       </div>

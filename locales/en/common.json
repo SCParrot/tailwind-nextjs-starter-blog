@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "projects": "Projects",
+    "tags": "Tags"
+  },
+  "footer": {
+    "copyright": "© {year} SCParrot. All rights reserved.",
+    "builtWith": "Built with Next.js & Tailwind CSS"
+  },
+  "home": {
+    "title": "Welcome to SCParrot Blog",
+    "description": "Nice to meet you! I'm Xingzheng.",
+    "readMore": "Read More",
+    "recentPosts": "Recent Posts",
+    "morePosts": "More Posts"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a software developer passionate about building modern web applications."
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Here are some of the projects I've worked on."
+  },
+  "tags": {
+    "title": "Tags",
+    "description": "Browse posts by tags."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Read my latest articles and thoughts.",
+    "noPosts": "No posts found.",
+    "share": "Share this post",
+    "relatedPosts": "Related Posts",
+    "comments": "Comments"
+  },
+  "search": {
+    "placeholder": "Search...",
+    "noResults": "No results found.",
+    "searching": "Searching..."
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文"
+  },
+  "pages": {
+    "home": {
+      "title": "Latest",
+      "description": "{description}"
+    },
+    "projects": {
+      "title": "Projects",
+      "subtitle": "Showcase your projects with a hero image (16 x 9)"
+    },
+    "about": {
+      "title": "About"
+    },
+    "tags": {
+      "title": "Tags",
+      "subtitle": "Things I blog about",
+      "noTags": "No tags found."
+    },
+    "blog": {
+      "title": "All Posts"
+    }
+  },
+  "common": {
+    "readMore": "Read more →",
+    "allPosts": "All Posts →",
+    "publishedOn": "Published on",
+    "previous": "Previous",
+    "next": "Next",
+    "pageOf": "{current} of {total}",
+    "allPostsLink": "All Posts",
+    "viewPostsTagged": "View posts tagged {tag}",
+    "noResults": "No results found.",
+    "author": {
+      "occupation": "Occupation",
+      "company": "Company"
+    }
+  }
+}

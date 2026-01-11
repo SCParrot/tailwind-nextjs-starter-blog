@@ -23,9 +23,11 @@ interface ListLayoutProps {
 function Pagination({ totalPages, currentPage }: PaginationProps) {
   const pathname = usePathname()
   const segments = pathname.split('/')
-  const lastSegment = segments[segments.length - 1]
+  // Skip locale segment (first segment is empty, second is locale like 'en' or 'zh')
+  const pathSegments = segments.length > 2 ? segments.slice(2) : []
+  const lastSegment = pathSegments[pathSegments.length - 1]
   const basePath = pathname
-    .replace(/^\//, '') // Remove leading slash
+    .replace(/^\/[a-z]{2}\//, '') // Remove leading /{locale}/
     .replace(/\/page\/\d+\/?$/, '') // Remove any trailing /page
     .replace(/\/$/, '') // Remove trailing slash
   const prevPage = currentPage - 1 > 0

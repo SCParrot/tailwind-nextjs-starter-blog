@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我",
+    "blog": "博客",
+    "projects": "项目",
+    "tags": "标签"
+  },
+  "footer": {
+    "copyright": "© {year} SCParrot. 保留所有权利。",
+    "builtWith": "使用 Next.js & Tailwind CSS 构建"
+  },
+  "home": {
+    "title": "欢迎来到 SCParrot 博客",
+    "description": "很高兴认识你！我是邢政。",
+    "readMore": "阅读更多",
+    "recentPosts": "最近文章",
+    "morePosts": "更多文章"
+  },
+  "about": {
+    "title": "关于我",
+    "description": "我是一名软件开发者，热衷于构建现代 Web 应用。"
+  },
+  "projects": {
+    "title": "我的项目",
+    "description": "这里是我参与的一些项目。"
+  },
+  "tags": {
+    "title": "标签",
+    "description": "按标签浏览文章。"
+  },
+  "blog": {
+    "title": "博客",
+    "description": "阅读我的最新文章和想法。",
+    "noPosts": "没有找到文章。",
+    "share": "分享这篇文章",
+    "relatedPosts": "相关文章",
+    "comments": "评论"
+  },
+  "search": {
+    "placeholder": "搜索...",
+    "noResults": "没有找到结果。",
+    "searching": "搜索中..."
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文"
+  },
+  "pages": {
+    "home": {
+      "title": "最新文章",
+      "description": "{description}"
+    },
+    "projects": {
+      "title": "项目",
+      "subtitle": "展示你的项目，使用横幅图片 (16 x 9)"
+    },
+    "about": {
+      "title": "关于我"
+    },
+    "tags": {
+      "title": "标签",
+      "subtitle": "我博客的内容分类",
+      "noTags": "没有找到标签。"
+    },
+    "blog": {
+      "title": "所有文章"
+    }
+  },
+  "common": {
+    "readMore": "阅读更多 →",
+    "allPosts": "所有文章 →",
+    "publishedOn": "发布于",
+    "previous": "上一页",
+    "next": "下一页",
+    "pageOf": "第 {current} 页，共 {total} 页",
+    "allPostsLink": "所有文章",
+    "viewPostsTagged": "查看标签为 {tag} 的文章",
+    "noResults": "没有找到结果。",
+    "author": {
+      "occupation": "职业",
+      "company": "公司"
+    }
+  }
+}
