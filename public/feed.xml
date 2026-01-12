@@ -7,33 +7,93 @@
       <language>en-us</language>
       <managingEditor>parrotace@outlook.com (SCParrot)</managingEditor>
       <webMaster>parrotace@outlook.com (SCParrot)</webMaster>
-      <lastBuildDate>Fri, 09 Jan 2026 16:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 10 Jan 2026 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/ vibe-code-compare</guid>
-    <title>国内 vs 国外 Vibe Coding：2026 年真实对比（程序员视角）</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/ vibe-code-compare</link>
-    <description>Vibe Coding（氛围编程/感觉式编程）彻底从硅谷小众梗变成了全球开发者日常嘴边词</description>
-    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/vue-nuxt-intro</guid>
+    <title>Vue + Nuxt in 2026: Still One of the Most Efficient Full-Stack Combinations?</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/vue-nuxt-intro</link>
+    <description>The following is a practical article about **Vue + Nuxt** suitable for reading in early 2026</description>
+    <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
-    <category>vibe coding</category>
+    <category>vue</category><category>nuxt</category><category>front-end</category>
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/echarts-intro</guid>
-    <title>让你 30 分钟内能自己画出大部分常见图表</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/echarts-intro</link>
-    <description>面向初学者、尽量简单易懂**的 **Apache ECharts 实用参考文档**</description>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/workflow-compare</guid>
+    <title>2026 Low-Code/No-Code AI Workflow Platform Comparison: n8n vs Dify vs Coze vs LangChain</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/workflow-compare</link>
+    <description>n8n vs Dify vs Coze vs LangChain</description>
+    <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>workflow</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/echarts-intro</guid>
+    <title>Learn ECharts in 30 Minutes</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/echarts-intro</link>
+    <description>A practical Apache ECharts reference guide for beginners - easy to understand and comprehensive</description>
     <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
     <category>echarts</category>
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/git-upstream</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/git-upstream</guid>
+    <title>How to Fork Someone Else&#39;s Project, Add Your Own Content, and Keep Up with Upstream Updates? (Recommended Approach in 2026)</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/git-upstream</link>
+    <description>How to fork someone else&#39;s project and keep up with upstream updates</description>
+    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>git</category><category>github</category><category>upstream</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/react-next-intro</guid>
+    <title>Next.js + React: The Most Recommended Frontend Full-Stack Framework in 2026 (Complete Guide from Beginner to Advanced)</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/react-next-intro</link>
+    <description>Next is almost certainly the most hassle-free and powerful choice currently available</description>
+    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>react</category><category>next</category><category>front-end</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/reactnative-intro</guid>
+    <title>React Native: Building Real Cross-Platform Apps with JavaScript 🚀</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/reactnative-intro</link>
+    <description>Develop once, run on multiple platforms</description>
+    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>reactnative</category><category>front-end</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/vibe-code-compare</guid>
+    <title>Domestic vs International Vibe Coding: Real 2026 Comparison (Developer Perspective)</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/vibe-code-compare</link>
+    <description>Vibe Coding has completely evolved from a Silicon Valley niche joke to a term on every developer&#39;s lips globally</description>
+    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>vibe coding</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/echarts-intro</guid>
+    <title>30分钟学会ECharts</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/echarts-intro</link>
+    <description>一份实用的Apache ECharts新手参考指南 - 易懂全面</description>
+    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>echarts</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/git-upstream</guid>
     <title>如何 fork 别人的项目，既能加自己的内容，又能长期跟上游更新？（2026年最新推荐做法）</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/git-upstream</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/git-upstream</link>
     <description>如何 fork 别人的项目并长期跟上游更新</description>
     <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -41,9 +101,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/react-next-intro</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/react-next-intro</guid>
     <title>Next.js + React：2026 年最推荐的前端全栈开发框架（新手到进阶完整指南）</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/react-next-intro</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/react-next-intro</link>
     <description>Next几乎是目前最省心最强大的选择</description>
     <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -51,9 +111,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/reactnative-intro</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/reactnative-intro</guid>
     <title>React Native：用 JavaScript 构建真正的跨平台应用 🚀</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/reactnative-intro</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/reactnative-intro</link>
     <description>一次开发，多端运行</description>
     <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -61,9 +121,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/vue-nuxt-intro</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/vibe-code-compare</guid>
+    <title>国内 vs 国外 Vibe Coding：2026 年真实对比（程序员视角）</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/vibe-code-compare</link>
+    <description>Vibe Coding（氛围编程/感觉式编程）彻底从硅谷小众梗变成了全球开发者日常嘴边词</description>
+    <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>vibe coding</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/vue-nuxt-intro</guid>
     <title>2026年的Vue + Nuxt：依然是最高效的全栈开发组合之一？</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/vue-nuxt-intro</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/vue-nuxt-intro</link>
     <description>以下是一篇适合2026年初阅读的、关于 **Vue + Nuxt** 的实用向文章</description>
     <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -71,9 +141,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/workflow-compare</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/workflow-compare</guid>
     <title>2026 年低代码/无代码 AI 工作流平台大横评：n8n vs Dify vs Coze vs LangChain</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/workflow-compare</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/workflow-compare</link>
     <description>n8n vs Dify vs Coze vs LangChain</description>
     <pubDate>Fri, 09 Jan 2026 16:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -81,9 +151,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/release-of-tailwind-nextjs-starter-blog-v2.0</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/release-of-tailwind-nextjs-starter-blog-v2.0</guid>
     <title>Release of Tailwind Nextjs Starter Blog v2.0</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/release-of-tailwind-nextjs-starter-blog-v2.0</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/release-of-tailwind-nextjs-starter-blog-v2.0</link>
     <description>Release of Tailwind Nextjs Starter Blog template v2.0, refactored with Nextjs App directory and React Server Components setup.Discover the new features and how to migrate from V1.</description>
     <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -91,9 +161,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/new-features-in-v1</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/release-of-tailwind-nextjs-starter-blog-v2.0</guid>
+    <title>Tailwind Nextjs 启动博客模板 v2.0 发布</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/release-of-tailwind-nextjs-starter-blog-v2.0</link>
+    <description>Tailwind Nextjs 启动博客模板 v2.0 发布，使用 Nextjs App 目录和 React 服务器组件重构。了解新功能以及如何从 V1 迁移。</description>
+    <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>next-js</category><category>tailwind</category><category>guide</category><category>feature</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/new-features-in-v1</guid>
     <title>New features in v1</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/new-features-in-v1</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/new-features-in-v1</link>
     <description>An overview of the new features released in v1 - code block copy, multiple authors, frontmatter layout and more</description>
     <pubDate>Sat, 07 Aug 2021 15:32:14 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -101,9 +181,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/new-features-in-v1</guid>
+    <title>v1 中的新功能</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/new-features-in-v1</link>
+    <description>v1 中发布的新功能概述 - 代码块复制、多位作者、frontmatter 布局等</description>
+    <pubDate>Sat, 07 Aug 2021 15:32:14 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>next-js</category><category>tailwind</category><category>guide</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/introducing-multi-part-posts-with-nested-routing</guid>
     <title>Introducing Multi-part Posts with Nested Routing</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/introducing-multi-part-posts-with-nested-routing</link>
     <description>The blog template supports posts in nested sub-folders. This can be used to group posts of similar content e.g. a multi-part course. This post is itself an example of a nested route!</description>
     <pubDate>Sun, 02 May 2021 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -111,9 +201,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-tailwind-nextjs-starter-blog</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/introducing-multi-part-posts-with-nested-routing</guid>
+    <title>介绍具有嵌套路由的多部分文章</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/introducing-multi-part-posts-with-nested-routing</link>
+    <description>博客模板支持嵌套子文件夹中的文章。这可用于组织类似内容的文章，例如多部分系列文章。这篇文章本身就是嵌套路由的一个例子！</description>
+    <pubDate>Sun, 02 May 2021 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>multi-author</category><category>next-js</category><category>feature</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/introducing-tailwind-nextjs-starter-blog</guid>
     <title>Introducing Tailwind Nextjs Starter Blog</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-tailwind-nextjs-starter-blog</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/introducing-tailwind-nextjs-starter-blog</link>
     <description>Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template.</description>
     <pubDate>Tue, 12 Jan 2021 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -121,9 +221,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/deriving-ols-estimator</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/introducing-tailwind-nextjs-starter-blog</guid>
+    <title>介绍 Tailwind Nextjs 启动博客</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/introducing-tailwind-nextjs-starter-blog</link>
+    <description>寻找一个高性能、开箱即用的模板，具有网络技术中最好的功能来支持您的博客需求？查看 Tailwind Nextjs 启动博客模板。</description>
+    <pubDate>Tue, 12 Jan 2021 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>next-js</category><category>tailwind</category><category>guide</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/deriving-ols-estimator</guid>
     <title>Deriving the OLS Estimator</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/deriving-ols-estimator</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/deriving-ols-estimator</link>
     <description>How to derive the OLS Estimator with matrix notation and a tour of math typesetting using markdown with the help of KaTeX.</description>
     <pubDate>Mon, 21 Dec 2020 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -131,9 +241,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/guide-to-using-images-in-nextjs</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/deriving-ols-estimator</guid>
+    <title>推导OLS估计量</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/deriving-ols-estimator</link>
+    <description>如何使用矩阵表示法推导OLS估计量，以及借助KaTeX使用markdown进行数学公式排版的介绍。</description>
+    <pubDate>Mon, 21 Dec 2020 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>next js</category><category>math</category><category>ols</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/guide-to-using-images-in-nextjs</guid>
     <title>Images in Next.js</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/guide-to-using-images-in-nextjs</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/guide-to-using-images-in-nextjs</link>
     <description>In this article we introduce adding images in the tailwind starter blog and the benefits and limitations of the next/image component.</description>
     <pubDate>Wed, 11 Nov 2020 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -141,9 +261,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/github-markdown-guide</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/guide-to-using-images-in-nextjs</guid>
+    <title>Next.js 中的图片</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/guide-to-using-images-in-nextjs</link>
+    <description>本文介绍在 tailwind starter blog 中添加图片，以及 next/image 组件的优点和局限性。</description>
+    <pubDate>Wed, 11 Nov 2020 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>next js</category><category>guide</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/markdown-guide</guid>
     <title>Markdown Guide</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/github-markdown-guide</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/markdown-guide</link>
     <description>Markdown cheatsheet for all your blogging needs - headers, lists, images, tables and more! An illustrated guide based on GitHub Flavored Markdown.</description>
     <pubDate>Fri, 11 Oct 2019 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -151,9 +281,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/the-time-machine</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/markdown-guide</guid>
+    <title>Markdown 指南</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/markdown-guide</link>
+    <description>适用于您所有博客需求的 Markdown 速查表 - 标题、列表、图片、表格等！基于 GitHub Flavored Markdown 的图文指南。</description>
+    <pubDate>Fri, 11 Oct 2019 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>github</category><category>guide</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/the-time-machine</guid>
     <title>The Time Machine</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/the-time-machine</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/the-time-machine</link>
     <description>The Time Traveller (for so it will be convenient to speak of him) was expounding a recondite matter to us. His pale grey eyes shone and twinkled, and his usually pale face was flushed and animated...</description>
     <pubDate>Wed, 15 Aug 2018 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -161,9 +301,19 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/pictures-of-canada</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/the-time-machine</guid>
+    <title>时间机器</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/the-time-machine</link>
+    <description>时间旅行者（为了方便起见，我们这样称呼他）正在向我们阐述一个深奥的问题。他灰白色的眼睛闪闪发光，通常苍白的脸色变得红润和生动……</description>
+    <pubDate>Wed, 15 Aug 2018 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>writings</category><category>book</category><category>reflection</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/pictures-of-canada</guid>
     <title>O Canada</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/pictures-of-canada</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/pictures-of-canada</link>
     <description>The scenic lands of Canada featuring maple leaves, snow-capped mountains, turquoise lakes and Toronto. Take in the sights in this photo gallery exhibition and see how easy it is to replicate with some MDX magic and tailwind classes.</description>
     <pubDate>Sat, 15 Jul 2017 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
@@ -171,10 +321,30 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/code-sample</guid>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/pictures-of-canada</guid>
+    <title>啊，加拿大</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/pictures-of-canada</link>
+    <description>加拿大的风景，以枫叶、雪山、绿松石湖和多伦多为特色。在这个照片画廊展览中欣赏风景，看看如何使用一些 MDX 魔法和 tailwind 类轻松复制。</description>
+    <pubDate>Sat, 15 Jul 2017 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>holiday</category><category>canada</category><category>images</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/code-sample</guid>
     <title>Sample .md file</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/code-sample</link>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/en/code-sample</link>
     <description>Example of a markdown file with code blocks and syntax highlighting</description>
+    <pubDate>Tue, 08 Mar 2016 00:00:00 GMT</pubDate>
+    <author>parrotace@outlook.com (SCParrot)</author>
+    <category>markdown</category><category>code</category><category>features</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/code-sample</guid>
+    <title>示例 .md 文件</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/zh/code-sample</link>
+    <description>带有代码块和语法高亮的 Markdown 文件示例</description>
     <pubDate>Tue, 08 Mar 2016 00:00:00 GMT</pubDate>
     <author>parrotace@outlook.com (SCParrot)</author>
     <category>markdown</category><category>code</category><category>features</category>

@@ -1,18 +1,17 @@
 ---
-title: Markdown 代码示例
+title: 示例 .md 文件
 date: '2016-03-08'
 tags: ['markdown', 'code', 'features']
 draft: false
-summary: 带有代码块和语法高亮的 markdown 文件示例
-language: zh
-slug: 'code-sample'
+summary: 带有代码块和语法高亮的 Markdown 文件示例
+translationOf: code-sample
 ---
 
-一个带有 markdown 的示例文章。
+一个包含 Markdown 的示例文章。
 
-## 内联高亮
+## 行内高亮
 
-内联高亮示例 `sum = parseInt(num1) + parseInt(num2)`
+行内高亮示例 `sum = parseInt(num1) + parseInt(num2)`
 
 ## 代码块
 
@@ -22,7 +21,7 @@ slug: 'code-sample'
 var num1, num2, sum
 num1 = prompt('输入第一个数字')
 num2 = prompt('输入第二个数字')
-sum = parseInt(num1) + parseInt(num2) // "+" 表示"相加"
+sum = parseInt(num1) + parseInt(num2) // "+" 表示 "相加"
 alert('和 = ' + sum) // "+" 表示组合成字符串
 ```
 
@@ -31,9 +30,9 @@ alert('和 = ' + sum) // "+" 表示组合成字符串
 ```python
 def fib():
     a, b = 0, 1
-    while True:            # 第一次迭代：
-        yield a            # 产生 0 开始，然后
-        a, b = b, a + b    # a 现在是 1，b 也是 1（0 + 1）
+    while True:            # 第一次迭代:
+        yield a            # 开始时产生 0，然后
+        a, b = b, a + b    # a 现在是 1，b 也是 1, (0 + 1)
 
 for index, fibonacci_number in zip(range(10), fib()):
      print('{i:3}: {f:3}'.format(i=index, f=fibonacci_number))

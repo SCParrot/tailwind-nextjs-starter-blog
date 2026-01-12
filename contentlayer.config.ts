@@ -29,16 +29,18 @@ import prettier from 'prettier'
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
 
-// heroicon mini link
+// Simple link icon
 const icon = fromHtmlIsomorphic(
   `
   <span class="content-header-link">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 linkicon">
-  <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 1-.142-3.667l-3Z" />
-  <path d="M11.603 7.963a.75.75 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l1.225-1.224a.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l-3Z" />
+  <path d="M10 4a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 4Z" />
+  <path d="M10 13a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 13Z" />
+  <path d="M4.75 10a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" />
+  <path d="M13.75 10a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" />
   </svg>
   </span>
-`,
+  `,
   { fragment: true }
 )
 
@@ -93,24 +95,25 @@ function createSearchIndex(allBlogs) {
   }
 }
 
-async function createLanguageSpecificIndices(allBlogs) {
+async function createLanguageSpecificIndices(allBlogs: any[]) {
   // Group blogs by language
-  const blogsByLanguage = allBlogs.reduce((acc, blog) => {
+  const blogsByLanguage = allBlogs.reduce((acc, blog: any) => {
     const lang = blog.language || 'en' // fallback to 'en'
     if (!acc[lang]) {
       acc[lang] = []
     }
     acc[lang].push(blog)
     return acc
-  }, {} as Record<string, typeof allBlogs>)
+  }, {} as Record<string, any[]>);
 
   // Create separate tag counts and search indices for each language
   for (const [language, blogs] of Object.entries(blogsByLanguage)) {
+    const typedBlogs = blogs as any[];
     // Tag counts per language
     const tagCount: Record<string, number> = {}
-    blogs.forEach((file) => {
+    typedBlogs.forEach((file) => {
       if (file.tags && (!isProduction || file.draft !== true)) {
-        file.tags.forEach((tag) => {
+        file.tags.forEach((tag: string) => {
           const formattedTag = slug(tag)
           if (formattedTag in tagCount) {
             tagCount[formattedTag] += 1
@@ -136,7 +139,7 @@ async function createLanguageSpecificIndices(allBlogs) {
       
       writeFileSync(
         searchIndexPath,
-        JSON.stringify(allCoreContent(sortPosts(blogs)))
+        JSON.stringify(allCoreContent(sortPosts(typedBlogs)))
       )
       console.log(`${language} search index generated...`)
     }
@@ -239,8 +242,8 @@ export default makeSource({
       rehypePresetMinify,
     ],
   },
-  onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
+  onSuccess: async (importData: any) => {
+    const { allBlogs }: { allBlogs: any[] } = await importData()
     createLanguageSpecificIndices(allBlogs)
   },
 })

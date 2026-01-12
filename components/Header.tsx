@@ -18,6 +18,19 @@ const Header = () => {
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/')
     segments[1] = newLocale
+    
+    // 处理博客文章路径，替换slug中的语言标识
+    if (segments.includes('blog')) {
+      const blogIndex = segments.indexOf('blog')
+      if (blogIndex + 1 < segments.length) {
+        // 检查slug的第一个部分是否是语言标识
+        const currentLangInSlug = segments[blogIndex + 1]
+        if (currentLangInSlug === 'en' || currentLangInSlug === 'zh') {
+          segments[blogIndex + 1] = newLocale
+        }
+      }
+    }
+    
     router.push(segments.join('/'))
   }
 
