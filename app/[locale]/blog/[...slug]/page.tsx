@@ -74,6 +74,8 @@ export async function generateMetadata(props: {
   }
 }
 
+export const dynamic = 'force-dynamic'
+
 export const generateStaticParams = async () => {
   return allBlogs.map((p) => ({
     slug: (p.slug || p.slug || '').split('/').map((name) => decodeURI(name)),
