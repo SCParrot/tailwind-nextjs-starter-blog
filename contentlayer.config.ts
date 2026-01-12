@@ -34,8 +34,8 @@ const icon = fromHtmlIsomorphic(
   `
   <span class="content-header-link">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 linkicon">
-  <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z" />
-  <path d="M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z" />
+  <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 1-.142-3.667l-3Z" />
+  <path d="M11.603 7.963a.75.75 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l1.225-1.224a.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l-3Z" />
   </svg>
   </span>
 `,
@@ -93,9 +93,59 @@ function createSearchIndex(allBlogs) {
   }
 }
 
+async function createLanguageSpecificIndices(allBlogs) {
+  // Group blogs by language
+  const blogsByLanguage = allBlogs.reduce((acc, blog) => {
+    const lang = blog.language || 'en' // fallback to 'en'
+    if (!acc[lang]) {
+      acc[lang] = []
+    }
+    acc[lang].push(blog)
+    return acc
+  }, {} as Record<string, typeof allBlogs>)
+
+  // Create separate tag counts and search indices for each language
+  for (const [language, blogs] of Object.entries(blogsByLanguage)) {
+    // Tag counts per language
+    const tagCount: Record<string, number> = {}
+    blogs.forEach((file) => {
+      if (file.tags && (!isProduction || file.draft !== true)) {
+        file.tags.forEach((tag) => {
+          const formattedTag = slug(tag)
+          if (formattedTag in tagCount) {
+            tagCount[formattedTag] += 1
+          } else {
+            tagCount[formattedTag] = 1
+          }
+        })
+      }
+    })
+    
+    const tagCountPath = language === 'en' ? './app/tag-data.json' : `./app/tag-data-${language}.json`
+    const formatted = await prettier.format(JSON.stringify(tagCount, null, 2), { parser: 'json' })
+    writeFileSync(tagCountPath, formatted)
+
+    // Search indices per language
+    if (
+      siteMetadata?.search?.provider === 'kbar' &&
+      siteMetadata.search.kbarConfig.searchDocumentsPath
+    ) {
+      const searchIndexPath = language === 'en' 
+        ? `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`
+        : `public/search-${language}.json`
+      
+      writeFileSync(
+        searchIndexPath,
+        JSON.stringify(allCoreContent(sortPosts(blogs)))
+      )
+      console.log(`${language} search index generated...`)
+    }
+  }
+}
+
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: 'blog/**/*.mdx',
+  filePathPattern: 'blog/{en,zh}/**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -109,9 +159,18 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+    slug: { type: 'string', required: false },
+    translationOf: { type: 'string' },
   },
   computedFields: {
     ...computedFields,
+    language: {
+      type: 'string',
+      resolve: (doc) => {
+        const pathParts = doc._raw.sourceFilePath.split('/')
+        return pathParts[1] // 'en' or 'zh'
+      }
+    },
     structuredData: {
       type: 'json',
       resolve: (doc) => ({
@@ -123,6 +182,7 @@ export const Blog = defineDocumentType(() => ({
         description: doc.summary,
         image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
         url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+        inLanguage: doc.language,
       }),
     },
   },
@@ -181,7 +241,6 @@ export default makeSource({
   },
   onSuccess: async (importData) => {
     const { allBlogs } = await importData()
-    createTagCount(allBlogs)
-    createSearchIndex(allBlogs)
+    createLanguageSpecificIndices(allBlogs)
   },
 })

@@ -1,0 +1,143 @@
+---
+title: Learn ECharts in 30 Minutes
+date: '2026-1-10'
+tags: ['echarts']
+draft: false
+summary: A practical Apache ECharts reference guide for beginners - easy to understand and comprehensive
+language: en
+slug: 'echarts-intro'
+---
+
+### 1. The Simplest One-Line Introduction
+
+Just remember these three core lines of code:
+
+```html
+<div id="chart" style="width:100%; height:500px;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+<script>
+var chart = echarts.init(document.getElementById('chart'));
+chart.setOption({ /* ← Almost all the magic happens here */ });
+</script>
+```
+
+**99% of your effort will be spent modifying the `setOption()` object**.
+
+### 2. Most Recommended Introduction Methods for 2025-2026 (Choose One)
+
+| Method | Code Syntax | Best For | Recommendation |
+|---------|-------------|------------|----------------|
+| CDN (Easiest) | `<script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>` | Quick prototypes, docs, demos | ★★★★★ |
+| Specific Version (Most Stable) | `https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js` | Production projects (prevent auto-update issues) | ★★★★☆ |
+| On-demand Import (Smallest Bundle) | `import * as echarts from 'echarts/core';` + manual component imports | Vue/React large projects | ★★★★ |
+| npm Full Bundle | `npm i echarts` → `import * as echarts from 'echarts'` | Regular frontend engineering projects | ★★★☆ |
+
+**Most people should just use the first or second method!**
+
+### 3. Quick Reference - Common Chart Templates (Copy-Paste Ready)
+
+```js
+// 1. Classic Bar Chart
+option = {
+  title: { text: 'Product Sales Comparison' },
+  tooltip: {},
+  xAxis: { data: ['T-Shirt', 'Hoodie', 'Pants', 'Socks'] },
+  yAxis: {},
+  series: [{
+    name: 'Sales',
+    type: 'bar',
+    data: [120, 200, 150, 80, 70],
+    itemStyle: { color: '#5470c6' }   // Change color
+  }]
+};
+
+// 2. Line Chart (Smooth + Multiple Lines)
+option = {
+  title: { text: '7-Day Traffic Trend' },
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['Desktop', 'Mobile'] },
+  xAxis: { type: 'category', data: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] },
+  yAxis: { type: 'value' },
+  series: [
+    { name: 'Desktop', type: 'line', smooth: true, data: [120, 132, 101, 134, 90, 230, 210] },
+    { name: 'Mobile', type: 'line', smooth: true, data: [220, 182, 191, 234, 290, 330, 310] }
+  ]
+};
+
+// 3. Pie Chart (Most Common Usage)
+option = {
+  title: { text: 'User Device Distribution', left: 'center' },
+  tooltip: { trigger: 'item' },
+  legend: { orient: 'vertical', left: 'left' },
+  series: [{
+    type: 'pie',
+    radius: '55%',
+    center: ['50%', '60%'],
+    data: [
+      { value: 1048, name: 'Mobile' },
+      { value: 735, name: 'Tablet' },
+      { value: 580, name: 'Desktop' },
+      { value: 484, name: 'Other' }
+    ],
+    emphasis: {
+      itemStyle: {
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+      }
+    }
+  }]
+};
+
+// 4. Bar + Line Chart Combination (Very Common)
+option = {
+  tooltip: { trigger: 'axis' },
+  legend: {},
+  xAxis: { data: ['Jan','Feb','Mar','Apr','May','Jun'] },
+  yAxis: [
+    { type: 'value', name: 'Sales (units)' },
+    { type: 'value', name: 'Growth Rate (%)' }
+  ],
+  series: [
+    { name: 'Sales', type: 'bar', data: [300, 450, 620, 580, 790, 920] },
+    { name: 'Growth Rate', type: 'line', yAxisIndex: 1, data: [5, 12, 18, -4, 35, 16] }
+  ]
+};
+```
+
+### 4. Quick Tips Reference (Highly Recommended to Bookmark)
+
+| Feature | How to Implement | Notes |
+|---------|------------------|-------|
+| Change Theme Color | `color: ['#5470c6', '#91cc75', '#fac858', ...]` | Global color list |
+| Dark Theme | `chart = echarts.init(dom, 'dark');` | Second parameter for 'dark' |
+| Custom Font | `textStyle: { fontFamily: 'Microsoft YaHei', fontSize: 14 }` | Global font |
+| Hide Legend | `legend: { show: false }` | — |
+| Horizontal Bar Chart | Swap `xAxis` and `yAxis` positions | Super convenient |
+| Data Labels on Bars | `series: [{ label: { show: true, position: 'top' } }]` | — |
+| Auto-refresh Data | `chart.setOption(newOption, true)` | Second parameter true clears and redraws |
+| Responsive Charts | `window.onresize = () => chart.resize()` | Must write! |
+| Gradient Bars | `itemStyle: { color: new echarts.graphic.LinearGradient(...) }` | Slightly more complex |
+| Click Events | `chart.on('click', params => console.log(params.name, params.value))` | Super important! |
+
+### 5. Recommended Learning Path (Suggested Order)
+
+1. **Get the 4 basic charts working** (1-2 hours)
+2. **Learn legend / tooltip / title configuration** (30 minutes)
+3. **Play with colors, fonts, grid, margins** (1 hour)
+4. **Learn dataset + transform** (new data-driven approach, highly recommended!)
+5. **Try radar, scatter, map, sankey, tree charts** (as needed)
+
+**Official Examples Library (2026 still most Recommended):**
+https://echarts.apache.org/examples/en/index.html
+
+### Final Summary
+
+> ECharts is not about ECharts itself
+> But about **what charts you want to draw**, **what your data looks like**, and **what stories you want to tell**
+
+Once you have clear requirements, find the most similar example, change the data → change the title → change colors → add interactions → you're done.
+
+Hope this helps you become an expert at "modifying options like drinking water"! 🚀
