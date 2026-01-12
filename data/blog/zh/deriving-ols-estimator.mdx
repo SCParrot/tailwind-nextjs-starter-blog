@@ -1,0 +1,144 @@
+---
+title: 推导OLS估计量
+date: '2020-12-21'
+tags: ['next js', 'math', 'ols']
+draft: false
+summary: '如何使用矩阵表示法推导OLS估计量，以及借助KaTeX使用markdown进行数学公式排版的介绍。'
+translationOf: deriving-ols-estimator
+---
+
+# 引言
+
+此博客模板中包含了数学公式的解析和显示功能。数学解析由 `remark-math` 和 `rehype-katex` 实现。
+KaTeX 及其相关字体包含在 `_document.js` 中，因此您可以在任何页面上自由使用它。
+[^footnote]
+
+[^footnote]: 有关支持的 TeX 函数完整列表，请查看 [KaTeX 文档](https://katex.org/docs/supported.html)
+
+行内数学符号可以通过将术语置于 `$` 符号之间来包含。
+
+数学代码块由 `$$` 表示。
+
+如果您打算使用 `$` 符号而不是数学模式，您可以转义它 (`\$`)，或指定HTML实体 (`&dollar;`) [^2]
+
+行内或手动编号的脚注也受支持。点击上面的链接查看它们的实际效果。
+
+[^2]: \$10 和 &dollar;20。
+
+# 推导OLS估计量
+
+使用矩阵表示法，令 $n$ 表示观测数量，$k$ 表示回归变量的数量。
+
+结果变量向量 $\mathbf{Y}$ 是一个 $n \times 1$ 矩阵，
+
+```tex
+\mathbf{Y} = \left[\begin{array}
+  {c}
+  y_1 \\
+  . \\
+  . \\
+  . \\
+  y_n
+\end{array}\right]
+```
+
+$$
+\mathbf{Y} = \left[\begin{array}
+  {c}
+  y_1 \\
+  . \\
+  . \\
+  . \\
+  y_n
+\end{array}\right]
+$$
+
+回归变量矩阵 $\mathbf{X}$ 是一个 $n \times k$ 矩阵（或每一行是一个 $k \times 1$ 向量），
+
+```latex
+\mathbf{X} = \left[\begin{array}
+  {ccccc}
+  x_{11} & . & . & . & x_{1k} \\
+  . & . & . & . & .  \\
+  . & . & . & . & .  \\
+  . & . & . & . & .  \\
+  x_{n1} & . & . & . & x_{nn}
+\end{array}\right] =
+\left[\begin{array}
+  {c}
+  \mathbf{x}'_1 \\
+  . \\
+  . \\
+  . \\
+  \mathbf{x}'_n
+\end{array}\right]
+```
+
+$$
+\mathbf{X} = \left[\begin{array}
+  {ccccc}
+  x_{11} & . & . & . & x_{1k} \\
+  . & . & . & . & .  \\
+  . & . & . & . & .  \\
+  . & . & . & . & .  \\
+  x_{n1} & . & . & . & x_{nn}
+\end{array}\right] =
+\left[\begin{array}
+  {c}
+  \mathbf{x}'_1 \\
+  . \\
+  . \\
+  . \\
+  \mathbf{x}'_n
+\end{array}\right]
+$$
+
+误差项向量 $\mathbf{U}$ 也是一个 $n \times 1$ 矩阵。
+
+有时使用向量表示法可能更容易。为了保持一致性，我将使用粗体小写字母 x 表示向量，大写字母表示矩阵。单个观测值用下标表示。
+
+## 最小二乘法
+
+**开始**:  
+$$y_i = \mathbf{x}'_i \beta + u_i$$
+
+**假设**:
+
+1. 线性（如上所述）
+2. $E(\mathbf{U}|\mathbf{X}) = 0$（条件独立性）
+3. rank($\mathbf{X}$) = $k$（无多重共线性，即满秩）
+4. $Var(\mathbf{U}|\mathbf{X}) = \sigma^2 I_n$（同方差性）
+
+**目标**:  
+找到使平方误差和最小的 $\beta$：
+
+$$
+Q = \sum_{i=1}^{n}{u_i^2} = \sum_{i=1}^{n}{(y_i - \mathbf{x}'_i\beta)^2} = (Y-X\beta)'(Y-X\beta)
+$$
+
+**解**:  
+提示：$Q$ 是一个 $1 \times 1$ 标量，根据对称性 $\frac{\partial b'Ab}{\partial b} = 2Ab$。
+
+对 $\beta$ 求矩阵导数：
+
+```tex
+\begin{aligned}
+  \min Q           & = \min_{\beta} \mathbf{Y}'\mathbf{Y} - 2\beta'\mathbf{X}'\mathbf{Y} +
+  \beta'\mathbf{X}'\mathbf{X}\beta \\
+                   & = \min_{\beta} - 2\beta'\mathbf{X}'\mathbf{Y} + \beta'\mathbf{X}'\mathbf{X}\beta \\
+  \text{[FOC]}~~~0 & =  - 2\mathbf{X}'\mathbf{Y} + 2\mathbf{X}'\mathbf{X}\hat{\beta}                  \\
+  \hat{\beta}      & = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{Y}                              \\
+                   & = (\sum^{n} \mathbf{x}_i \mathbf{x}'_i)^{-1} \sum^{n} \mathbf{x}_i y_i
+\end{aligned}
+```
+
+$$
+\begin{aligned}
+  \min Q           & = \min_{\beta} \mathbf{Y}'\mathbf{Y} - 2\beta'\mathbf{X}'\mathbf{Y} +
+  \beta'\mathbf{X}'\mathbf{X}\beta \\
+                   & = \min_{\beta} - 2\beta'\mathbf{X}'\mathbf{Y} + \beta'\mathbf{X}'\mathbf{X}\beta \\
+  \text{[FOC]}~~~0 & =  - 2\mathbf{X}'\mathbf{Y} + 2\mathbf{X}'\mathbf{X}\hat{\beta}                  \\
+  \hat{\beta}      & = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{Y}                              \\
+                   & = (\sum^{n} \mathbf{x}_i \mathbf{x}'_i)^{-1} \sum^{n} \mathbf{x}_i y_i
+\end{aligned}
+$$

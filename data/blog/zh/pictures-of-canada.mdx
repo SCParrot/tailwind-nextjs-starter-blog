@@ -1,0 +1,87 @@
+---
+title: 啊，加拿大
+date: '2017-07-15'
+tags: ['holiday', 'canada', 'images']
+draft: false
+layout: PostBanner
+images: ['/static/images/canada/mountains.jpg']
+summary: 加拿大的风景，以枫叶、雪山、绿松石湖和多伦多为特色。在这个照片画廊展览中欣赏风景，看看如何使用一些 MDX 魔法和 tailwind 类轻松复制。
+translationOf: pictures-of-canada
+---
+
+加拿大的风景，以枫叶、雪山、绿松石湖和多伦多为特色。在这个照片画廊展览中欣赏风景，看看如何使用一些 MDX 魔法和 tailwind 类轻松复制。
+
+特色是使用 `next/image` 组件提供的图片。本地存储的图片位于以下路径的文件夹中：`/static/images/canada/[filename].jpg`
+
+由于我们使用 mdx，我们可以创建一个简单的响应式 flexbox 网格，使用一些 tailwind css 类来显示我们的图片。
+
+---
+
+# 画廊
+
+<div className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![枫叶](/static/images/canada/maple.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![湖](/static/images/canada/lake.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![山脉](/static/images/canada/mountains.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![多伦多](/static/images/canada/toronto.jpg)
+  </div>
+</div>
+
+# 实现
+
+```js
+<div className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![枫叶](/static/images/canada/maple.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![湖](/static/images/canada/lake.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![山脉](/static/images/canada/mountains.jpg)
+  </div>
+  <div className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+    ![多伦多](/static/images/canada/toronto.jpg)
+  </div>
+</div>
+```
+
+使用 MDX v2，可以在 jsx 中交错 markdown，如示例代码所示。
+
+### 照片来源
+
+<div>
+  枫叶照片由 [Guillaume
+  Jaillet](https://unsplash.com/@i_am_g?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+  提供
+  来自
+  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+</div>
+<div>
+  山脉照片由 [John
+  Lee](https://unsplash.com/@john_artifexfilms?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+  提供
+  来自
+  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+</div>
+<div>
+  湖泊照片由 [Tj
+  Holowaychuk](https://unsplash.com/@tjholowaychuk?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+  提供
+  来自
+  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+</div>
+<div>
+  多伦多照片由 [Matthew
+  Henry](https://unsplash.com/@matthewhenry?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+  提供
+  来自
+  [Unsplash](https://unsplash.com/s/photos/canada?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+</div>

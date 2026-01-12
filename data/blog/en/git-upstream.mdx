@@ -1,0 +1,131 @@
+---
+title: How to Fork Someone Else's Project, Add Your Own Content, and Keep Up with Upstream Updates? (Recommended Approach in 2026)
+date: '2026-1-10'
+tags: ['git', 'github', 'upstream']
+draft: false
+summary: How to fork someone else's project and keep up with upstream updates
+translationOf: git-upstream
+---
+
+### Recommended Workflow Overview (Most Common, Least Risky)
+
+```
+Upstream Repository (Others)  →  Sync Regularly to  →  Your Fork Main Branch (Usually main/master)
+                                                        ↓
+                                              Develop Your Features on feature/xxx Branch
+                                                        ↓
+                                        Submit PR to Upstream (Optional) or Keep in Your Repo
+```
+
+### Step 1: Fork the Project (Everyone Knows This)
+
+Simply click the **Fork** button on GitHub
+→ Get `https://github.com/your-username/original-project-name`
+
+### Step 2: Add Upstream as Remote (Super Important! Do Once Only)
+
+After cloning your fork locally, execute the following commands (**Do Once in Lifetime**):
+
+```bash
+# Enter project directory
+cd your-project-folder
+
+# View current remotes (usually only origin)
+git remote -v
+
+# Add upstream repository (upstream is the convention, you can name it anything but recommend using this)
+git remote add upstream https://github.com/original-author/original-project-name.git
+
+# View again, should see two remotes
+git remote -v
+# origin    https://github.com/your-username/original-project-name.git (fetch)
+# origin    https://github.com/your-username/original-project-name.git (push)
+# upstream  https://github.com/original-author/original-project-name.git (fetch)
+# upstream  https://github.com/original-author/original-project-name.git (push)
+```
+
+### Step 3: Three Main Ways to Sync Upstream Updates Daily (Choose Your Favorite)
+
+#### Way 1: Easiest (Recommended for Most People) — Direct Sync on Web Page
+
+1. Open your own fork repository page
+2. See the prompt "This branch is X commits behind original-author:main"
+3. Click the **Sync fork** button → **Update branch**
+
+Pros: Fastest, most foolproof
+Cons: If there are conflicts, you can only resolve them by creating a PR (more complicated)
+
+#### Way 2: Most Flexible, Recommended for Long-term Maintenance (Local merge/rebase)
+
+```bash
+# 1. Make sure you're on main branch
+git checkout main
+
+# 2. Fetch latest content from upstream (won't change anything on your local)
+git fetch upstream
+
+# 3. Two merge strategies to choose from:
+  
+# Option A: Preserve merge history (safer, recommended for beginners)
+git merge upstream/main
+
+# Option B: Keep history cleaner (used by advanced users, but be careful)
+git rebase upstream/main
+   # If conflicts → Resolve conflicts → git rebase --continue
+
+# 4. Regardless of which you chose, push to your own repo after completion
+git push origin main
+# If rebase was used and you pushed before, may need force push (be careful!)
+# git push origin main --force-with-lease
+```
+
+#### Way 3: GitHub CLI One-click Sync (Increasingly Popular Since 2023)
+
+Install GitHub CLI first (if not installed yet): https://cli.github.com
+
+```bash
+# One command to sync directly (sync remote repo, no local operations needed)
+gh repo sync your-username/your-fork-repo-name --branch main
+
+# If conflicts arise, you'll need to fall back to Way 2 to resolve locally
+```
+
+### Step 4: What to Do with Your Own Modifications? (Most Important!)
+
+**Golden Rule**: **Never write your own code directly on main/master branch!**
+
+Correct approach:
+
+```bash
+# Every time you want to add new features/make changes, create new branch
+git checkout -b feature/my-new-feature
+# Or
+git checkout -b fix/fix-some-bug
+
+# ... Modify code, commit ...
+  
+git add .
+git commit -m "feat: Added XXX feature"
+
+# Push to your own repo
+git push origin feature/my-new-feature
+```
+
+This way your main branch can cleanly sync upstream continuously, while all your personalized modifications are safely kept in various feature branches.
+
+### Quick Reference Table - What to Do in Different Situations
+
+| What You Want to Do              | Recommended Way        | Notes                              |
+|----------------------------------|------------------------|------------------------------------|
+| Just want quick sync, no own code| Web Sync fork          | Fastest                           |
+| Long-term fork maintenance, own changes | Local fetch + merge    | Safest, most controllable         |
+| Pursue clean history line        | Local fetch + rebase   | Elegant after mastering           |
+| Lazy to open local, remote one-click | gh repo sync           | Still needs local handling on conflicts |
+| Upstream updates very frequent   | GitHub Actions Auto-sync | Good for bot/theme/template repos |
+
+Remember one sentence:
+
+**"Main branch only responsible for upstream, all your valuable modifications should be placed in feature/xxx branches"**
+This is the survival rule that 90% of long-term fork maintainers eventually follow.
+
+Wish you happy forking and smooth syncing ~ 🚀
