@@ -5,9 +5,9 @@
   "scripts": {
     "start": "next dev",
     "dev": "cross-env next dev",
-    "build": "cross-env next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
+    "build": "cross-env contentlayer2 build && cross-env next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
-    "analyze": "cross-env ANALYZE=true next build",
+    "analyze": "cross-env ANALYZE=true contentlayer2 build && cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky"
   },
