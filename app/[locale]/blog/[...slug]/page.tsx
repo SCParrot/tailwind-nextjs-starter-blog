@@ -74,18 +74,18 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  return allBlogs.map((p) => ({ slug: (p.slug || p.slug || '').split('/').map((name) => decodeURI(name)) }))
+  return allBlogs.map((p) => ({
+    slug: (p.slug || p.slug || '').split('/').map((name) => decodeURI(name)),
+  }))
 }
 
-export default async function Page(props: { 
-  params: Promise<{ locale: string, slug: string[] }> 
-}) {
+export default async function Page(props: { params: Promise<{ locale: string; slug: string[] }> }) {
   const { locale, slug: slugArray } = await props.params
   const slug = decodeURI(slugArray.join('/'))
-  
+
   // 优先查找当前语言版本
   let post = allBlogs.find((p) => p.slug === slug && p.language === locale)
-  
+
   if (!post) {
     // 回退到其他语言版本
     post = allBlogs.find((p) => p.slug === slug)
@@ -94,12 +94,10 @@ export default async function Page(props: {
     }
     // TODO: 显示语言切换提示
   }
-  
+
   // 查找其他语言版本用于导航
-  const otherLanguageVersion = allBlogs.find((p) => 
-    p.slug === slug && p.language !== locale
-  )
-  
+  const otherLanguageVersion = allBlogs.find((p) => p.slug === slug && p.language !== locale)
+
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug && p.language === locale)

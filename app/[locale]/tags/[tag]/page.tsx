@@ -10,7 +10,7 @@ import { Metadata } from 'next'
 const POSTS_PER_PAGE = 5
 
 export async function generateMetadata(props: {
-  params: Promise<{ locale: string, tag: string }>
+  params: Promise<{ locale: string; tag: string }>
 }): Promise<Metadata> {
   const params = await props.params
   const { locale, tag } = params
@@ -27,31 +27,30 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  const locales = ['en', 'zh'];
-  const tagCounts = tagData as Record<string, number>;
-  const tagKeys = Object.keys(tagCounts);
-  
+  const locales = ['en', 'zh']
+  const tagCounts = tagData as Record<string, number>
+  const tagKeys = Object.keys(tagCounts)
+
   // 为每种语言生成路径
   return locales.flatMap((locale) => {
     return tagKeys.map((tag) => ({
       locale,
       tag: encodeURI(tag),
-    }));
-  });
+    }))
+  })
 }
 
-export default async function TagPage(props: { 
-  params: Promise<{ locale: string, tag: string }> 
-}) {
+export default async function TagPage(props: { params: Promise<{ locale: string; tag: string }> }) {
   const params = await props.params
   const { locale, tag } = params
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
-    sortPosts(allBlogs.filter((post) => 
-      post.tags && 
-      post.tags.map((t) => slug(t)).includes(tag) &&
-      post.language === locale
-    ))
+    sortPosts(
+      allBlogs.filter(
+        (post) =>
+          post.tags && post.tags.map((t) => slug(t)).includes(tag) && post.language === locale
+      )
+    )
   )
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   const initialDisplayPosts = filteredPosts.slice(0, POSTS_PER_PAGE)

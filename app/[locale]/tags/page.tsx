@@ -30,7 +30,7 @@ export default async function Page() {
                 <Link
                   href={`/tags/${slug(t)}`}
                   className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
-                  aria-label={tCommon('viewPostsTagged', {tag: t})}
+                  aria-label={tCommon('viewPostsTagged', { tag: t })}
                 >
                   {` (${tagCounts[t]})`}
                 </Link>

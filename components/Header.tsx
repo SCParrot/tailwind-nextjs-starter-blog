@@ -18,7 +18,7 @@ const Header = () => {
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/')
     segments[1] = newLocale
-    
+
     // 处理博客文章路径，替换slug中的语言标识
     if (segments.includes('blog')) {
       const blogIndex = segments.indexOf('blog')
@@ -30,7 +30,7 @@ const Header = () => {
         }
       }
     }
-    
+
     router.push(segments.join('/'))
   }
 
