@@ -4,7 +4,8 @@ import 'katex/dist/katex.css'
 import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
+import { sortPosts } from 'pliny/utils/contentlayer'
+import { customCoreContent, customAllCoreContent } from '../../utils'
 import { allBlogs, allAuthors } from 'contentlayer/generated'
 import type { Authors, Blog } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
@@ -30,7 +31,7 @@ export async function generateMetadata(props: {
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
+    return customCoreContent(authorResults as Authors)
   })
   if (!post) {
     return
@@ -99,7 +100,7 @@ export default async function Page(props: { params: Promise<{ locale: string; sl
   const otherLanguageVersion = allBlogs.find((p) => p.slug === slug && p.language !== locale)
 
   // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
+  const sortedCoreContents = customAllCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug && p.language === locale)
   if (postIndex === -1) {
     return notFound()
@@ -110,9 +111,9 @@ export default async function Page(props: { params: Promise<{ locale: string; sl
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
+    return customCoreContent(authorResults as Authors)
   })
-  const mainContent = coreContent(post)
+  const mainContent = customCoreContent(post)
   const jsonLd = post.structuredData
   jsonLd['author'] = authorDetails.map((author) => {
     return {

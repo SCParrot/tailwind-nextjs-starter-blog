@@ -1,5 +1,6 @@
 import { slug } from 'github-slugger'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { sortPosts } from 'pliny/utils/contentlayer'
+import { customAllCoreContent } from '../../utils'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
@@ -44,7 +45,7 @@ export default async function TagPage(props: { params: Promise<{ locale: string;
   const params = await props.params
   const { locale, tag } = params
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
-  const filteredPosts = allCoreContent(
+  const filteredPosts = customAllCoreContent(
     sortPosts(
       allBlogs.filter(
         (post) =>

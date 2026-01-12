@@ -1,5 +1,6 @@
 import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { sortPosts } from 'pliny/utils/contentlayer'
+import { customAllCoreContent } from '../../../utils'
 import { allBlogs } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
@@ -26,7 +27,7 @@ export const generateStaticParams = async () => {
 export default async function Page(props: { params: Promise<{ locale: string; page: string }> }) {
   const params = await props.params
   const { locale, page } = params
-  const posts = allCoreContent(sortPosts(allBlogs.filter((post) => post.language === locale)))
+  const posts = customAllCoreContent(sortPosts(allBlogs.filter((post) => post.language === locale)))
   const pageNumber = parseInt(page as string)
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
 

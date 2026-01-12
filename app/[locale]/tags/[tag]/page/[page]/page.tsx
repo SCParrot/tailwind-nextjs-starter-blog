@@ -1,5 +1,6 @@
 import { slug } from 'github-slugger'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { sortPosts } from 'pliny/utils/contentlayer'
+import { customAllCoreContent } from '../../../../utils'
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
 import tagData from 'app/tag-data.json'
@@ -38,7 +39,7 @@ export default async function TagPage(props: {
   const { locale, tag, page } = params
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   const pageNumber = parseInt(page)
-  const filteredPosts = allCoreContent(
+  const filteredPosts = customAllCoreContent(
     sortPosts(
       allBlogs.filter(
         (post) =>
