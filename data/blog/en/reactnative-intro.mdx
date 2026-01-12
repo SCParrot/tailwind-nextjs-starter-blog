@@ -1,0 +1,127 @@
+---
+title: "React Native: Building Real Cross-Platform Apps with JavaScript 🚀"
+date: '2026-1-10'
+tags: ['reactnative', 'front-end']
+draft: false
+summary: Develop once, run on multiple platforms
+translationOf: reactnative-intro
+---
+
+In mobile app development, "develop once, run on multiple platforms" has always been the goal pursued by developers. **React Native** was born under this backdrop — it allows us to use **JavaScript / TypeScript and React concepts** to build truly native-like iOS and Android apps.
+
+---
+
+## What is React Native?
+
+**React Native (RN)** is an open-source cross-platform mobile development framework launched by Facebook (Meta).
+It doesn't simply wrap web pages in a WebView, but instead uses a **native component mapping mechanism** to render React components as genuine native UI.
+
+This is also the biggest difference between React Native and traditional Hybrid solutions.
+
+---
+
+## Core Advantages of React Native ✨
+
+### 1️⃣ Genuine Native Experience
+
+React Native uses native components (such as `View`, `Text`, `Image`), delivering performance and interaction experiences close to native apps, significantly superior to WebView-based solutions.
+
+### 2️⃣ Cross-Platform Development, Cost Savings
+
+One codebase can run on both **iOS / Android**, dramatically reducing development and maintenance costs, especially suitable for small-to-medium teams and rapidly iterating products.
+
+### 3️⃣ Familiar React Development Model
+
+If you already master **React Hooks, component-based thinking, state management**, you can almost seamlessly start with React Native.
+
+### 4️⃣ Hot Updates and Rapid Iteration
+
+Supports **Fast Refresh**, where code modifications are immediately visible, resulting in very high development efficiency ⚡
+
+---
+
+## How React Native Works 🧠
+
+React Native doesn't directly manipulate native UI, but instead follows this process:
+
+1. JavaScript code runs in JS engine (Hermes / JSC)
+2. React generates Virtual DOM
+3. RN framework passes updates through Bridge (or new architecture) to native layer
+4. Native layer renders corresponding UI components
+
+With the introduction of the **New Architecture (Fabric + TurboModules)**, React Native has seen significant improvements in performance and communication efficiency.
+
+---
+
+## What Scenarios Is React Native Suitable For?
+
+React Native is very suitable for the following scenarios:
+
+* 📱 Content Apps (news, communities, utility apps)
+* 🛒 E-commerce, event pages, marketing apps
+* 🚀 Rapid MVP validation
+* 🧩 Products requiring unified iOS / Android experience
+
+However, for **high-performance games, heavy animations, deep system customization** scenarios, native development still has advantages.
+
+---
+
+## A Simple React Native Example
+
+```tsx
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello React Native 🚀</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+  },
+});
+```
+
+From the code, you can see that React Native is very similar to React, but uses **cross-platform native components and styling systems**.
+
+---
+
+## React Native vs Flutter 🤔
+
+| Comparison Item | React Native            | Flutter |
+| --------------- | ----------------------- | ------- |
+| Language        | JavaScript / TypeScript | Dart    |
+| UI Rendering    | Native Components       | Custom Engine    |
+| Learning Curve  | Low (for React users)   | Medium  |
+| Native Integration | Very Flexible          | Relatively Complex    |
+
+If you have React ecosystem background, **React Native is a very natural choice**.
+
+---
+
+## Ecosystem & Tool Recommendations 🧰
+
+* **Expo**: Quick start and build RN apps
+* **React Navigation**: Routing and navigation
+* **Redux / Zustand / Recoil**: State management
+* **Axios / React Query**: Data requests and caching
+* **Hermes**: High-performance JS engine
+
+---
+
+## Summary
+
+React Native continues to occupy an important position in cross-platform development.
+It strikes a good balance between **development efficiency, community ecosystem, and native experience**, making it a reliable choice for building mobile apps.
+
+If you want to use familiar React tech stack to quickly create high-quality mobile apps, **React Native is worth trying** 💡
