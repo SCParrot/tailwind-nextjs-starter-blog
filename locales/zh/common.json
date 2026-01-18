@@ -23,7 +23,9 @@
   },
   "projects": {
     "title": "我的项目",
-    "description": "这里是我参与的一些项目。"
+    "description": "这里是我参与的一些项目。",
+    "demo": "演示",
+    "github": "GitHub"
   },
   "tags": {
     "title": "标签",

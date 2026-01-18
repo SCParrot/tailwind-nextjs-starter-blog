@@ -8,6 +8,9 @@ export const metadata = genPageMetadata({ title: 'Projects' })
 export default async function ProjectsPage() {
   const t = await getTranslations('projects')
 
+  const demoLabel = t('demo')
+  const githubLabel = t('github')
+
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -26,6 +29,9 @@ export default async function ProjectsPage() {
                 description={d.description}
                 imgSrc={d.imgSrc}
                 href={d.href}
+                github={d.github}
+                demoLabel={demoLabel}
+                githubLabel={githubLabel}
               />
             ))}
           </div>

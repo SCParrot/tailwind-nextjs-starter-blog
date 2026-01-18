@@ -1,7 +1,7 @@
 import Image from './Image'
 import Link from './Link'
 
-const Card = ({ title, description, imgSrc, href }) => (
+const Card = ({ title, description, imgSrc, href, github, demoLabel, githubLabel }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
       className={`${
@@ -38,16 +38,27 @@ const Card = ({ title, description, imgSrc, href }) => (
             title
           )}
         </h2>
-        <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-        {href && (
-          <Link
-            href={href}
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 text-base leading-6 font-medium"
-            aria-label={`Link to ${title}`}
-          >
-            Learn more &rarr;
-          </Link>
-        )}
+        <p className="prose mb-4 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+        <div className="flex flex-wrap gap-3">
+          {href && (
+            <Link
+              href={href}
+              className="inline-flex items-center rounded-md border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-900 hover:border-primary-500 dark:border-gray-700 dark:text-gray-100"
+              aria-label={`${demoLabel}: ${title}`}
+            >
+              {demoLabel}
+            </Link>
+          )}
+          {github && (
+            <Link
+              href={github}
+              className="inline-flex items-center rounded-md border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-900 hover:border-primary-500 dark:border-gray-700 dark:text-gray-100"
+              aria-label={`${githubLabel}: ${title}`}
+            >
+              {githubLabel}
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   </div>

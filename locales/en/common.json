@@ -23,7 +23,9 @@
   },
   "projects": {
     "title": "My Projects",
-    "description": "Here are some of the projects I've worked on."
+    "description": "Here are some of the projects I've worked on.",
+    "demo": "Show template",
+    "github": "GitHub"
   },
   "tags": {
     "title": "Tags",
